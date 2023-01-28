@@ -31,4 +31,29 @@ All main use cases must be covered by at least one unit or(and) integration test
 java -jar build/libs/stock-1.0.0-RELEASE.jar
 ```
 
+### GET /api/stocks (get a list of stocks)
+```
+http://localhost:8081/payconiq/api/stocks?pageNo=5&pageSize=5&sortBy=id
+```
+
+### POST /api/stocks (create a stock)
+```
+http://localhost:8081/payconiq/api/stocks
+```
+
+### GET /api/stocks/1 (get one stock from the list)
+```
+http://localhost:8081/payconiq/api/stocks/100
+```
+
+### PATCH /api/stocks/1 (update the price of a single stock)
+```
+http://localhost:8081/payconiq/api/stocks/19
+```
+
+### DELETE/api/stocks/1 (delete a single stock)
+```
+http://localhost:8081/payconiq/api/stocks/100
+```
+
 #### Please refer the file [Payconiq_Assignment_Tests.pdf](https://github.com/srikanthnaidu65/payconiq/blob/main/Payconiq_Assignment_Tests.pdf) for the test evidences
