@@ -56,4 +56,14 @@ http://localhost:8081/payconiq/api/stocks/19
 http://localhost:8081/payconiq/api/stocks/100
 ```
 
+### API documentation
+```
+http://localhost:8081/payconiq/v3/api-docs
+```
+
+### Swagger UI
+```
+http://localhost:8081/payconiq/swagger-ui.html
+```
+
 #### Please refer the file [Payconiq_Assignment_Tests.pdf](https://github.com/srikanthnaidu65/payconiq/blob/main/Payconiq_Assignment_Tests.pdf) for the test evidences
