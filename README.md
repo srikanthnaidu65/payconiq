@@ -31,4 +31,4 @@ All main use cases must be covered by at least one unit or(and) integration test
 java -jar build/libs/stock-1.0.0-RELEASE.jar
 ```
 
-#### Please refer the file Payconiq_Assignment_Tests.pdf for the test evidences
+#### Please refer the file [Payconiq_Assignment_Tests.pdf](https://github.com/srikanthnaidu65/payconiq/blob/main/Payconiq_Assignment_Tests.pdf) for the test evidences
