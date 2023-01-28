@@ -15,3 +15,20 @@ Implementing the project in Kotlin is a plus.
 Implementation
 Treat this application as a real MVP that should go to production.
 All main use cases must be covered by at least one unit or(and) integration test.
+
+### Run JUnit Tests
+```bash
+./gradlew clean test --info
+```
+
+### Build
+```bash
+./gradlew clean build
+```
+
+### Deploy/Start the application
+```bash
+java -jar build/libs/stock-1.0.0-RELEASE.jar
+```
+
+#### Please refer the file Payconiq_Assignment_Tests.pdf for the test evidences
