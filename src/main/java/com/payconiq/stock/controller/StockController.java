@@ -19,7 +19,10 @@ import org.springframework.web.bind.annotation.*;
  * <p>
  * This is REST controller class to handle Stock HTTP operations
  */
-@RestController()
+
+@CrossOrigin(origins = "http://localhost:8081")
+@RestController
+@RequestMapping(value = "/api")
 public class StockController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(StockController.class);
@@ -27,7 +30,7 @@ public class StockController {
     @Autowired
     private StockService service;
 
-    @GetMapping(value = "/api/stocks", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/stocks", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Stock>> getStocks(@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
                                                  @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize,
                                                  @RequestParam(name = "sortBy", defaultValue = "id") String sortBy) {
@@ -36,7 +39,7 @@ public class StockController {
         return ResponseEntity.ok(stocks);
     }
 
-    @GetMapping(value = "/api/stocks/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/stocks/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Stock> getStock(@PathVariable(name = "id") Long id) {
         LOGGER.info("Fetching stock with Id: {}", id);
         return service.getStock(id)
@@ -44,21 +47,21 @@ public class StockController {
                 .orElseThrow(() -> new StockNotFoundException(id));
     }
 
-    @PostMapping(value = "/api/stocks", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/stocks", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Stock> saveStock(@RequestBody Stock stock) {
         LOGGER.info("Saving stock with Id: {}", stock.getId());
         service.saveStock(stock);
         return new ResponseEntity<>(stock, HttpStatus.CREATED);
     }
 
-    @PatchMapping(value = "/api/stocks/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PatchMapping(value = "/stocks/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Stock> updatePartialStock(@RequestBody Stock stock,
                                                     @PathVariable(name = "id") Long id) {
         LOGGER.info("Updating stock with Id: {}", id);
         return ResponseEntity.ok(service.updateStock(stock, id));
     }
 
-    @DeleteMapping(value = "/api/stocks/{id}")
+    @DeleteMapping(value = "/stocks/{id}")
     public ResponseEntity<String> deleteStock(@PathVariable(name = "id") Long id) {
         LOGGER.info("Deleting stock with Id: {}", id);
         service.deleteStock(id);

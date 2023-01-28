@@ -27,10 +27,9 @@ public class StockApplication implements CommandLineRunner {
      * This method is to load initial Stocks to database.
      * Required only for testing purpose. Disabled prior to production deployment.
      * @param args incoming main method arguments
-     * @throws Exception
      */
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         Stock stock;
         for (long i = 1; i <= 1000; i++) {
             stock = new Stock();
